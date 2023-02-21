@@ -45,9 +45,13 @@ function checkAnwser() {
 
     if (isCorrect) {
         alert("Hey! You got it right! :D");
+        incrementScore();
      } else {
         alert(`Awwww....you anwsered ${userAnwser}. The correct anwser was ${calculatedAnwser[0]}!`);
+        incrementWrongAnwser();
      }
+
+     runGame(calculatedAnwser[1]);
 
 }
 /**
@@ -67,14 +71,23 @@ function calculateCorrectAnwser() {
            throw `Unimplemented operator ${operator}. Aborting!`;
        }
 
-       runGame(calculatedAnwser[1]);
 }
-
+/**
+ * Gets the current score from the DOM and increments it by 1
+ */
 function incrementScore() {
 
-}
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = ++oldScore;
 
+}
+/**
+ * Gets the current tally of incorrect anwsers from the DOM and increments it by 1
+ */
 function displayWrongAnwser() {
+
+    let oldScore = parseInt(document.getElementById("incorrect").innerText);
+    document.getElementById("incorrect").innerText = ++oldScore;
 
 }
 
