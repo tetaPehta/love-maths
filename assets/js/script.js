@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
          })
     }
 
+    document.getElementById("anwser-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnwser();
+        }
+    })
+
     runGame("addition");
 })
 
@@ -23,6 +29,10 @@ document.addEventListener("DOMContentLoaded", function() {
  * and after the user's anwser has been processed
  */
 function runGame(gameType) {
+
+    document.getElementById("anwser-box").value = "";
+    document.getElementById("anwser-box").focus();
+    // Creates rtandom numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
     let num2 = Math.floor(Math.random() * 25) + 1;
 
